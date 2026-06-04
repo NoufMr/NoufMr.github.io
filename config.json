@@ -1,14 +1,12 @@
-[
- {
+{
   "username": "NoufMr",
-  "name": "Nouf Monawer Al-Harbi‏",
+  "name": "Nouf Monawer Al-Harbi",
   "userimg": "https://avatars.githubusercontent.com/u/134384114?v=4",
   "sort": "created",
   "order": "asc",
   "includeFork": false,
   "theme": "light.css",
   "types": [
-   "all"
+    "all"
   ]
- }
-]
+}
