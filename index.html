@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title></title>
+    <!-- عنوان الموقع في المتصفح -->
+    <title>Nouf Al-Salimi | Data & AI Engineer</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
@@ -25,36 +26,56 @@
   </head>
 
   <body>
+    <!-- الشاشة المؤقتة أثناء التحميل -->
     <div id="loading">
       <div id="spinner"></div>
     </div>
+
+    <!-- الجزء الجانبي: الملف الشخصي والبيانات الثابتة -->
     <div id="profile">
-      <div id="profile_img"></div>
+      <!-- Gitfolio سيقوم بجلب صورتك من قيت هب تلقائياً ويضعها هنا -->
+      <div id="profile_img" style="background-image: url('https://github.com/NoufMr.png');"></div>
+      
       <div id="username">
-        <div id="fullname"></div>
+        <div id="fullname">Nouf Al-Salimi</div>
+        <a href="https://github.com/NoufMr" target="_blank">@NoufMr</a>
       </div>
-      <div id="userbio"></div>
-      <div id="about"></div>
+      
+      <div id="userbio">
+        Data & AI Engineer specializing in scalable pipelines & intelligent automation.
+      </div>
+      
+      <div id="about">
+        <span><i class="fas fa-briefcase"></i> Smart National Solutions (SNS)</span>
+        <span><i class="fas fa-envelope"></i> <a href="mailto:nf.mr.alh@gmail.com">nf.mr.alh@gmail.com</a></span>
+        <span><i class="fab fa-linkedin"></i> <a href="https://linkedin.com/in/nouf-monawer" target="_blank">Nouf Monawer</a></span>
+        <span><i class="fas fa-map-marker-alt"></i> Riyadh, Saudi Arabia</span>
+      </div>
     </div>
+
+    <!-- الجزء الرئيسي: عرض المشاريع المجلوبة والمدونة -->
     <div id="display">
       <div id="work">
-        <h1>Work.</h1>
+        <h1>Projects & Open Source.</h1>
         <div class="projects" id="work_section"></div>
       </div>
+      
       <div id="forks" style="display:none;">
         <h1>Forks.</h1>
         <div class="projects" id="forks_section"></div>
       </div>
+      
       <div id="blog_section">
         <h1>Blog.</h1>
         <div id="blogs"></div>
       </div>
+      
       <div id="footer">
-        <a href="https://github.com/imfunniee" target="_blank"
-          >made on earth by a human</a
-        >
+        <a href="https://github.com/NoufMr" target="_blank">Nouf Al-Salimi &copy; 2026</a>
       </div>
     </div>
+
+    <!-- الأكواد البرمجية الخاصة بالتحميل والـ Grid وتوزيع العناصر -->
     <script type="text/javascript">
       setTimeout(function() {
         document.getElementById("loading").classList.add("animated");
@@ -64,12 +85,12 @@
           document.getElementById("loading").classList.remove("fadeOut");
           document.getElementById("loading").style.display = "none";
         }, 800);
-      }, 1500);
+      }, 1000);
+
       $.getJSON("blog.json", function(blog) {
         blog = blog || [];
         if (blog.length == 0) {
-          return (document.getElementById("blog_section").style.display =
-            "none");
+          return (document.getElementById("blog_section").style.display = "none");
         }
         for (var i = 0; i < blog.length; i++) {
           $("#blogs").append(`
@@ -94,8 +115,8 @@
     <script>
       const magicProjectsGrid = new MagicGrid({
         container: "#work_section",
-        animate: false,
-        gutter: 30, // default gutter size
+        animate: true,
+        gutter: 20, 
         static: true,
         useMin: false,
         maxColumns: 2,
@@ -104,8 +125,8 @@
 
       const magicForksGrid = new MagicGrid({
         container: "#forks_section",
-        animate: false,
-        gutter: 30, // default gutter size
+        animate: true,
+        gutter: 20,
         static: true,
         useMin: false,
         maxColumns: 2,
