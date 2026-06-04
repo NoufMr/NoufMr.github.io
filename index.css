@@ -1,296 +1,271 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,700");
-@import url("https://fonts.googleapis.com/css?family=Questrial");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-:root {
-  --bg-color: #080b10;
-  --text-color: #f0f6fc;
-  --accent-color: #00f2fe; /* أزرق نيون مشع */
-  --purple-glow: #4facfe; /* تدرج أزرق بنفسجي مريح */
-  --card-bg: rgba(22, 27, 34, 0.7);
-  --border-color: rgba(240, 246, 250, 0.1);
+:root{
+  --bg-color:#f8fafc;
+  --text-color:#0f172a;
+  --card-bg:#ffffff;
+  --secondary:#64748b;
+  --accent:#2563eb;
+
+  --background-image:
+  linear-gradient(
+    rgba(15,23,42,.65),
+    rgba(15,23,42,.65)
+  ),
+  url("https://raw.githubusercontent.com/NoufMr/NoufMr.github.io/main/banner.png");
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  background: var(--bg-color);
-  color: var(--text-color);
-  max-width: 100vw;
-  overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
-  /* إضافة شبكة رسومية خفيفة بالخلفية لتوحي بالبيانات */
-  background-image: 
-    radial-gradient(circle at 10% 20%, rgba(79, 172, 254, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.05) 0%, transparent 40%);
+*{
+  box-sizing:border-box;
 }
 
-#loading {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  background: var(--bg-color);
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html{
+  scroll-behavior:smooth;
 }
 
-#spinner {
-  animation: rotate 0.8s infinite linear;
-  width: 60px;
-  height: 60px;
-  border: 3px solid rgba(0, 242, 254, 0.1);
-  border-bottom: 3px solid var(--accent-color);
-  border-radius: 50%;
+body{
+  margin:0;
+  padding:0;
+  font-family:'Inter',sans-serif;
+  background:var(--bg-color);
+  color:var(--text-color);
 }
 
-@keyframes rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+#loading{
+  display:none;
 }
 
-/* تحويل الهيكل إلى تصميم صفحة كاملة مودرن بدلاً من الـ Sidebar الثابت */
-#profile {
-  width: 80vw;
-  max-width: 1000px;
-  margin: 8vh auto 4vh auto;
-  padding: 6vh 4vw;
-  position: relative;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  background: var(--card-bg) !important;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 24px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  z-index: 2;
+/* ==========================
+   SIDEBAR
+========================== */
+
+#profile{
+  width:28vw;
+  height:100vh;
+
+  position:fixed;
+  top:0;
+  left:0;
+
+  background:var(--background-image);
+  background-size:cover !important;
+  background-position:center;
+
+  padding:60px 40px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+
+  color:white;
+
+  box-shadow:
+  0 0 40px rgba(0,0,0,.15);
 }
 
-#profile_img {
-  width: 140px;
-  height: 140px;
-  min-width: 140px;
-  min-height: 140px;
-  border-radius: 20px; /* زوايا دائرية ناعمة مودرن */
-  border: 2px solid var(--accent-color);
-  box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
-  margin-right: 4vw;
-  background-size: cover !important;
+#profile::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  backdrop-filter:blur(8px);
 }
 
-#profile div {
-  margin: 0.5vh 0;
+#profile>*{
+  position:relative;
+  z-index:2;
 }
 
-#username {
-  font-size: 22px;
-  font-weight: 700;
+#profile_img{
+  width:180px;
+  height:180px;
+
+  border-radius:50%;
+
+  border:5px solid rgba(255,255,255,.25);
+
+  box-shadow:
+  0 15px 40px rgba(0,0,0,.25);
+
+  background-size:cover !important;
+  background-position:center !important;
+
+  margin-bottom:25px;
 }
 
-#username span {
-  font-size: 32px;
-  background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: "Poppins", sans-serif;
+#username{
+  font-size:20px;
+  font-weight:700;
 }
 
-#username a {
-  color: var(--accent-color) !important;
-  text-decoration: none;
-  font-size: 16px;
-  opacity: 0.8;
-  transition: 0.3s;
+#username span{
+  display:block;
+  font-size:30px;
+  margin-bottom:8px;
 }
 
-#username a:hover { opacity: 1; text-shadow: 0 0 10px rgba(0, 242, 254, 0.5); }
-
-#userbio {
-  font-size: 18px;
-  font-family: "Poppins", sans-serif;
-  color: #adc1d6;
-  line-height: 1.6;
-  margin: 1.5vh 0 !important;
-  font-weight: 300;
+#username a{
+  color:white;
+  text-decoration:none;
 }
 
-#about {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 2vh;
+#userbio{
+  font-size:20px;
+  line-height:1.8;
+  margin-top:20px;
+  color:rgba(255,255,255,.95);
 }
 
-#about span {
-  display: flex !important;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 6px 16px;
-  border-radius: 30px;
-  font-size: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+#about{
+  margin-top:25px;
 }
 
-#about span i {
-  color: var(--accent-color);
-  margin-right: 8px;
+.socials{
+  margin-top:25px;
 }
 
-.socials {
-  margin: 0 !important;
-  display: flex;
+.socials a{
+  color:white;
+  font-size:22px;
 }
 
-.socials span {
-  background: linear-gradient(45deg, rgba(79,172,254,0.1), rgba(0,242,254,0.1)) !important;
-  border: 1px solid rgba(0, 242, 254, 0.2) !important;
-  transition: 0.3s;
+/* ==========================
+   MAIN CONTENT
+========================== */
+
+#display{
+  margin-left:28vw;
+  width:72vw;
+  min-height:100vh;
+
+  padding:70px;
 }
 
-.socials span:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0, 242, 254, 0.2);
+#display h1{
+  font-size:42px;
+  font-weight:800;
+
+  margin-bottom:30px;
 }
 
-.socials span a {
-  color: #fff !important;
-  text-decoration: none;
-  font-weight: 600;
+/* ==========================
+   PROJECT CARDS
+========================== */
+
+.projects{
+  display:grid !important;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
+  gap:25px;
+
+  margin-top:30px;
 }
 
-/* ضبط عرض حاوية المشاريع لتتوسط الصفحة */
-#display {
-  width: 80vw;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 2vh 4vw 8vh 4vw;
-  display: block;
+.projects a{
+  width:100% !important;
+  text-decoration:none;
 }
 
-#display h1 {
-  font-size: 38px;
-  color: #fff;
-  font-weight: 700;
-  position: relative;
-  margin-bottom: 4vh;
-  letter-spacing: 1px;
+.projects section{
+  width:100%;
+
+  background:white;
+
+  border-radius:24px;
+
+  padding:30px;
+
+  border:none;
+
+  box-shadow:
+  0 10px 30px rgba(0,0,0,.08);
+
+  transition:.3s ease;
 }
 
-#display h1::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(45deg, #4facfe, #00f2fe);
-  border-radius: 2px;
+.projects section:hover{
+  transform:translateY(-8px);
+
+  box-shadow:
+  0 20px 50px rgba(0,0,0,.12);
 }
 
-.projects {
-  margin-left: 0;
-  width: 100%;
+.section_title{
+  font-size:24px;
+  font-weight:700;
+  margin-bottom:15px;
 }
 
-.projects a {
-  width: calc(50% - 15px);
-  display: inline-flex;
-  text-decoration: none;
-  margin-bottom: 30px;
+.about_section{
+  color:#475569;
+  line-height:1.8;
+  margin-bottom:25px;
 }
 
-.projects section {
-  width: 100%;
-  padding: 4vh 6%;
-  background: var(--card-bg) !important;
-  border: 1px solid var(--border-color) !important;
-  border-radius: 18px;
-  color: var(--text-color) !important;
-  backdrop-filter: blur(8px);
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+.bottom_section{
+  color:#64748b;
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
-.projects section:hover {
-  transform: translateY(-5px);
-  border: 1px solid rgba(0, 242, 254, 0.4) !important;
-  box-shadow: 0 15px 30px rgba(0, 242, 254, 0.08);
+/* ==========================
+   BLOG
+========================== */
+
+#blog_section{
+  display:none;
 }
 
-.section_title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 1.5vh;
+/* ==========================
+   FOOTER
+========================== */
+
+#footer{
+  text-align:center;
+  margin-top:80px;
+  padding:30px;
 }
 
-.about_section {
-  font-size: 15px;
-  color: #90a4ae;
-  line-height: 1.5;
-  font-weight: 300;
+#footer a{
+  text-decoration:none;
+  color:#64748b;
 }
 
-.bottom_section {
-  margin-top: 3vh;
-  font-size: 13px;
-  color: #607d8b;
-  display: flex;
-  align-items: center;
-}
+/* ==========================
+   MOBILE
+========================== */
 
-.bottom_section span {
-  margin-right: 25px;
-  display: inline-flex;
-  align-items: center;
-}
+@media(max-width:900px){
 
-.bottom_section span i {
-  margin-right: 6px;
-  color: var(--purple-glow);
-}
-
-#footer {
-  width: 100%;
-  padding: 6vh 0;
-  text-align: center;
-  border-top: 1px solid var(--border-color);
-  margin-top: 4vh;
-}
-
-#footer a {
-  color: #607d8b !important;
-  font-size: 14px;
-  letter-spacing: 1px;
-  transition: 0.3s;
-}
-#footer a:hover { color: var(--accent-color) !important; }
-
-/* شاشات الهواتف الذكية */
-@media (max-width: 800px) {
-  #profile {
-    width: 85vw;
-    flex-direction: column;
-    text-align: center;
-    padding: 4vh 5vw;
-    margin-top: 4vh;
+  #profile{
+    position:relative;
+    width:100%;
+    height:auto;
   }
-  #profile_img {
-    margin-right: 0;
-    margin-bottom: 3vh;
-  }
-  #about {
-    justify-content: center;
-  }
-  #display { width: 85vw; padding: 2vh 5vw; }
-  .projects a { width: 100%; }
-}
 
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-color); }
-::-webkit-scrollbar-thumb { background: rgba(0, 242, 254, 0.2); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: var(--accent-color); }
+  #display{
+    width:100%;
+    margin-left:0;
+    padding:40px 20px;
+  }
+
+  #profile_img{
+    width:140px;
+    height:140px;
+  }
+
+  #username span{
+    font-size:26px;
+  }
+
+  #userbio{
+    font-size:18px;
+  }
+
+  #display h1{
+    font-size:32px;
+  }
+}
