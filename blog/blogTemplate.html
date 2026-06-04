@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Lorem ipsum dolor</title>
+    <title>Nouf Al-Salimi | Blog</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css"
@@ -20,74 +20,72 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
+    <!-- ربط ملف الـ CSS الأساسي لتوحيد الألوان والثيم -->
+    <link rel="stylesheet" href="../../index.css" />
   </head>
   <body>
+    <!-- شاشة التحميل المتناسقة -->
     <div id="loading">
       <div id="spinner"></div>
     </div>
+    
+    <!-- زر العودة للخلف -->
     <a href="/" class="go_back"><i class="fas fa-arrow-left"></i></a>
+    
     <div id="background_overlay"></div>
-    <div id="background"></div>
+    <div id="background" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1600');"></div>
+    
+    <!-- بيانات الكاتب (نوف السليمي) -->
     <table id="profile_blog">
       <tbody>
         <tr>
-          <td style="width:8vw;"><div id="profile_img_blog"></div></td>
+          <td style="width:8vw;">
+            <div id="profile_img_blog" style="background-image: url('https://github.com/NoufMr.png');"></div>
+          </td>
           <td style="width:52vw;">
-            <div id="username_blog"></div>
+            <div id="username_blog">
+              <span>Nouf Al-Salimi</span>
+              <a href="https://github.com/NoufMr" target="_blank" style="color: var(--accent-color); text-decoration: none;">@NoufMr</a>
+            </div>
           </td>
         </tr>
       </tbody>
     </table>
+
+    <!-- عرض محتوى المقال (هذا الجزء كمثال ويمكن للـ Gitfolio استبداله ديناميكياً) -->
     <div id="blog-display">
-      <h1 id="blog_title">Lorem ipsum dolor</h1>
+      <h1 id="blog_title">Building Scalable Data Pipelines & Intelligent Agents</h1>
       <h2 id="blog_sub_title">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        How to combine robust data engineering infrastructure with LLM-powered automation.
       </h2>
       <div id="blog">
         <img
-          src="https://images.unsplash.com/photo-1553748024-d1b27fb3f960?w=1450"
+          src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1450"
+          alt="Data Engineering Dashboard"
         />
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut placerat
-          pretium sem, ac maximus dui sodales a. Nunc aliquet hendrerit turpis
-          ac egestas. Phasellus volutpat tristique maximus.
-          <b>Pellentesque feugiat eget nisi et dignissim.</b> Nam nibh erat,
-          sollicitudin non facilisis nec, scelerisque nec ipsum. Sed accumsan
-          velit condimentum, pharetra felis vitae, commodo tellus.
-          <u><i>Mauris consequat luctus orci.</i></u>
+          In modern tech ecosystems, data engineering and AI are no longer operating in silos. Transitioning from traditional technical services to building end-to-end <b>ETL/ELT processes</b> requires a deep understanding of infrastructure scalability, workflow orchestration, and automation.
         </p>
         <p>
-          Vivamus pharetra lobortis dui non tincidunt. Mauris vitae nisi
-          vestibulum, mollis magna a, maximus mi. Suspendisse dictum eget augue
-          quis sodales. Quisque rutrum ligula nec dapibus tincidunt.
-          <span
-            >Proin hendrerit massa a tellus vestibulum, a hendrerit ipsum
-            iaculis. Suspendisse potenti.</span
-          >
-          Praesent eget erat blandit, finibus sapien vitae, ullamcorper erat.
-          Integer blandit, felis at ullamcorper maximus, odio lectus pretium
-          mauris, vel consequat lectus quam eu risus. Pellentesque gravida nec
-          diam eget vehicula.
+          Using tools like <span>Apache Airflow</span> and <span>Docker</span> allows us to schedule and containerize data scrapers efficiently, ensuring clean data enters our warehouses, such as Snowflake or Azure Data Lake.
         </p>
         <img
-          src="https://images.unsplash.com/photo-1556814278-8906c7d3a05f?w=1050"
+          src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1050"
+          alt="AI Automation"
         />
         <p>
-          Donec hendrerit turpis non libero eleifend dignissim. Mauris non
-          tempor metus, et tristique massa. Integer consequat justo quam, vitae
-          aliquam arcu vestibulum at. Donec porttitor quam in tempus convallis.
-          Praesent feugiat eget eros vitae accumsan. Duis ultricies odio quis
-          nisl volutpat, consectetur imperdiet sem laoreet. Quisque maximus
-          semper ligula at tincidunt. Pellentesque accumsan varius vehicula.
+          Once the data infrastructure is stable, the next frontier is <b>Intelligent Process Automation (IPA)</b>. By building conversational, execution-driven tools (like AI Agents for SAP or Telegram assistants), we can replace manual workflows with autonomous, smart systems powered by cutting-edge LLMs.
         </p>
       </div>
     </div>
+
+    <!-- الفوتر الاحترافي -->
     <div id="footer_blog">
-      <a href="https://github.com/imfunniee" target="_blank"
-        >made on earth by a human</a
-      >
+      <a href="https://github.com/NoufMr" target="_blank">Nouf Al-Salimi &copy; 2026</a>
     </div>
+
     <script type="text/javascript">
+      // أنيميشن التحميل
       setTimeout(function() {
         document.getElementById("loading").classList.add("animated");
         document.getElementById("loading").classList.add("fadeOut");
@@ -96,29 +94,23 @@
           document.getElementById("loading").classList.remove("fadeOut");
           document.getElementById("loading").style.display = "none";
         }, 800);
-      }, 1500);
+      }, 1000);
+
+      // جلب بيانات الإعدادات الافتراضية للـ Theme وتعديل الـ Overlay ليتطابق مع الـ Dark Mode الخاص بكِ
       $.getJSON("../../config.json", function(user) {
         var icon = document.createElement("link");
         icon.setAttribute("rel", "icon");
-        icon.setAttribute("href", user[0].userimg);
+        icon.setAttribute("href", user[0].userimg || 'https://github.com/NoufMr.png');
         icon.setAttribute("type", "image/png");
         document.getElementsByTagName("head")[0].appendChild(icon);
-        document.getElementById(
-          "profile_img_blog"
-        ).style.background = `url('${user[0].userimg}') center center`;
-        document.getElementById(
-          "username_blog"
-        ).innerHTML = `<span style="display:${
-          user[0].name == null || !user[0].name ? "none" : "block"
-        };">${user[0].name}</span>@${user[0].username}<b id="blog_time"></b>`;
-
-        if ((user[0].theme = "dark.css")) {
-          document.querySelector("#background_overlay").style.background =
-            "linear-gradient(0deg, rgba(10, 10, 10, 1), rgba(10, 10, 10, 0.1))";
-        } else {
-          document.querySelector("#background_overlay").style.background =
-            "linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.1))";
-        }
+        
+        // التعديل هنا ليطابق درجات الأسود والأزرق الخاصة بالثيم الجديد الداكن
+        document.querySelector("#background_overlay").style.background =
+          "linear-gradient(0deg, #0d1117 20%, rgba(13, 17, 23, 0.6) 100%)";
+      }).fail(function() {
+        // حماية في حال عدم وجود ملف config.json
+        document.querySelector("#background_overlay").style.background =
+          "linear-gradient(0deg, #0d1117 20%, rgba(13, 17, 23, 0.6) 100%)";
       });
     </script>
   </body>
